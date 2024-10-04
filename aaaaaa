@@ -1,0 +1,18 @@
+<?php
+// Retrieve data from the request
+$data = json_decode(file_get_contents('php://input'));
+
+if ($data && isset($data->data)) {
+    // Process the data
+    $receivedData = $data->data;
+    // Perform any desired operations with $receivedData
+
+    // Send a response back (optional)
+    $response = ["message" => "Data received successfully"];
+    echo json_encode($response);
+} else {
+    // Handle invalid or missing data
+    $response = ["error" => "Invalid data"];
+    echo json_encode($response);
+}
+?>
